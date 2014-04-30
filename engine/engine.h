@@ -24,8 +24,6 @@ public:
     void delay(int mil);
     int getTicks();
     void setWindowTitle(std::string title);
-template <typename input, typename output>
-    output convertText(const input &var);
 
 };
 

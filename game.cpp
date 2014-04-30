@@ -31,7 +31,7 @@ void Game::updateInterface(){
         startPosY = startPosY + 25;
         startPosX = 0;
     }
-    grap->drawText(10, 15, localConfig->getStringValue("score_bar_label", "Score: ") + eng->convertText<int, std::string>( score* localConfig->getIntValue("p_score", 10)), 17);
+    grap->drawText(10, 15, localConfig->getStringValue("score_bar_label", "Score: ") + boost::lexical_cast<std::string>(score* localConfig->getIntValue("p_score", 10)), 17);
     grap->render();
 }
 void Game::endScreen(){
@@ -80,6 +80,7 @@ void Game::activateKeyControl(){
             }
         }
         while (SDL_PollEvent(&event)){
+
             switch(event.type){
             case SDL_MOUSEBUTTONDOWN:
                 if (event.button.button == SDL_BUTTON_LEFT and event.button.state == SDL_PRESSED )
