@@ -5,6 +5,6 @@ int main()
 {
     Game gr ( 600, 600);
     gr.initGame();
-    gr.activateKeyControl();
+    gr.loopGame();
 
 }

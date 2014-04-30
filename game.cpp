@@ -64,7 +64,7 @@ void Game::actionMouse(int x,
     }
 }
 
-void Game::activateKeyControl(){
+void Game::loopGame(){
     SDL_Event event;
     int quit = 0;
     while (!quit){

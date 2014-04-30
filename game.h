@@ -21,7 +21,7 @@ public:
     Game(int x, int y);
     void initGame();
     void actionMouse(int x, int y);
-    void activateKeyControl();
+    void loopGame();
     void updateInterface();
     void updateTimer();
     void endScreen();
