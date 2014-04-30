@@ -7,7 +7,7 @@ BlocksManager::BlocksManager(int width, int height): sizeX(width), sizeY(height)
 void BlocksManager::initGame(){
     for(int y = 0; y < sizeY; y++){
         for(int x = 0; x< sizeX ;x++){
-            int randomColor =  getRandomColorId();
+            int randomColor =  Block::getRandomColorId();
             tableBlocks[y].push_back(colorTable[randomColor]);
         }
     }
@@ -18,7 +18,9 @@ void BlocksManager::moveemptyBlocks(int x){
     for(int y = 0; y < tableBlocks.size();  y++)
          if (isActive(tableBlocks[y][x]))
              tmpColor.push_back(tableBlocks[y][x]);
+    int o = 0;
     for(int a = 0; a < sizeY; a++){
+        std::cout<<++o<<std::endl;
         if (a < sizeY - (tmpColor.size()) )
             clearBlock(tableBlocks[a][x])  ;
         else

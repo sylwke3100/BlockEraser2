@@ -21,7 +21,7 @@ public:
     void initGame();
     void searchNeiberhood(int x, int y, int &counterPoints);
     void checkNeiberhood(int x, int y, RGBColor currentElement);
-    void moveemptyBlocks(int x);
+    void moveemptyBlocks(int y);
     void workinQuene(int &counterPoints);
 };
 

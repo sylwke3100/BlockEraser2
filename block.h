@@ -8,7 +8,8 @@ class Block
 {
 
 public:
-    std::mt19937 engine ;
+    Block();
+    std::random_device rd;
     void clearBlock(RGBColor &blk);
     bool isActive(RGBColor blk);
     void setBlock(const RGBColor in, RGBColor& out);

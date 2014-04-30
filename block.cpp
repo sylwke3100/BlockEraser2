@@ -1,5 +1,8 @@
 #include "block.h"
 
+Block::Block(){
+
+}
 void Block::clearBlock(RGBColor &blk){
     blk.set(0, 0, 0);
 }
@@ -17,6 +20,8 @@ void Block::setBlock(const RGBColor in,
 }
 
 int Block::getRandomColorId(){
-    std::uniform_int_distribution<int> rando(1, 6);
-    return rando(engine);
+    std::default_random_engine e1(rd());
+    std::uniform_int_distribution<int> rando(1,6);
+    int r = rando(e1);
+    return r;
 }

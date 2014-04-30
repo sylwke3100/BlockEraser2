@@ -10,7 +10,6 @@ Game::Game(int width, int height){
     eng-> setWindowTitle( localConfig->getStringValue("title_Game","BlockEraser2").c_str() );
     grap = new Graphic(eng->screen, width, height);
     std::function<void()> f = [this]{ this->updateInterface(); };
-    eng-> globalEvents.addEvent("updateInterface", f);
     blocks = new BlocksManager(20, 20);
 }
 
