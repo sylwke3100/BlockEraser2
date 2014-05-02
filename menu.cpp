@@ -36,7 +36,7 @@ void Menu::loopMenu(){
             if (event.button.button == SDL_BUTTON_LEFT and event.button.state == SDL_PRESSED ){
                 if ((event.button.x >= 250 || event.button.x >= 280 ) && (event.button.y >= 200 || event.button.y <= 260)){
                     std::cout<<"Ok"<<std::endl;
-                    Game gr ( 600, 600);
+                    Game gr ( 600, 600, eng);
                     gr.initGame();
                     gr.loopGame();
                  }

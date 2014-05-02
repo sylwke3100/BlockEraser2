@@ -3,13 +3,11 @@
 using namespace std;
 
 
-Game::Game(int width, int height){
+Game::Game(int width, int height, Engine * e): eng (e){
     localConfig = new Config ("game.cfg");
     localConfig->parse();
-    eng = new Engine();
     eng-> setWindowTitle( localConfig->getStringValue("title_Game","BlockEraser2").c_str() );
     grap = new Graphic(eng->screen, width, height);
-    std::function<void()> f = [this]{ this->updateInterface(); };
     blocks = new BlocksManager(20, 20);
 }
 
