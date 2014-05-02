@@ -9,7 +9,7 @@ class Graphic
 public:
     Graphic(SDL_Surface * screen, int width, int height);
     void drawText(short x, short y, std::string Text, int fontSize);
-    void drawBlock(int x, int y, int height, int width, RGBColor& Color);
+    void drawBlock(int x, int y, int height, int width, RGBColor Color);
     void clearAll();
     void render();
 };

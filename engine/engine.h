@@ -1,6 +1,5 @@
 #ifndef ENGINE_H
 #define ENGINE_H
-#include "blocksmanager.h"
 #include <SDL.h>
 #include <SDL_ttf.h>
 #include <vector>
@@ -13,7 +12,6 @@ class Engine
 {
     int width;
     int height;
-    BlocksManager * localblocks;
     SDL_Event event;
     std::vector<std::pair<int, int> > startBlock;
     int c = 0;

@@ -1,10 +1,8 @@
 #include "game.h"
-
+#include "menu.h"
 
 int main()
 {
-    Game gr ( 600, 600);
-    gr.initGame();
-    gr.loopGame();
-
+    Menu *M = new Menu();
+    M->loopMenu();
 }

@@ -33,7 +33,7 @@ void Graphic::drawBlock(int x,
                         int y,
                         int height,
                         int width,
-                        RGBColor &Color){
+                        RGBColor Color){
     SDL_Rect* kwadrat = new SDL_Rect;
     kwadrat->h = height;
     kwadrat->w = width;
