@@ -3,6 +3,6 @@
 
 int main()
 {
-    Menu *M = new Menu();
-    M->loopMenu();
+    Menu M;
+    M.loopMenu();
 }

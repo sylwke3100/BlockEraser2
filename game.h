@@ -18,7 +18,7 @@ private:
     Config *localConfig;
     Timer * gameTime;
 public:
-    Game(int x, int y, Engine * e);
+    Game(Engine * e, Graphic *gr);
     void initGame();
     void actionMouse(int x, int y);
     void loopGame();

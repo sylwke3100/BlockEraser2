@@ -12,10 +12,10 @@ class Engine
 {
     int width;
     int height;
-    SDL_Event event;
     std::vector<std::pair<int, int> > startBlock;
     int c = 0;
 public:
+    SDL_Event event;
     SDL_Surface * screen = NULL;
     Events globalEvents;
     Engine();

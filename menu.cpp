@@ -26,19 +26,20 @@ void Menu::drawMainMenu(){
 
 
 void Menu::loopMenu(){
-    SDL_Event event;
     int quit = 0;
-    drawMainMenu();
+
     while (!quit){
-        switch(event.type){
-        std::cout<<"Ok23"<<std::endl;
+        drawMainMenu();
+      while (SDL_PollEvent(&eng->event)){
+        switch(eng->event.type){
         case SDL_MOUSEBUTTONDOWN:
-            if (event.button.button == SDL_BUTTON_LEFT and event.button.state == SDL_PRESSED ){
-                if ((event.button.x >= 250 || event.button.x >= 280 ) && (event.button.y >= 200 || event.button.y <= 260)){
-                    std::cout<<"Ok"<<std::endl;
-                    Game gr ( 600, 600, eng);
-                    gr.initGame();
-                    gr.loopGame();
+            if (eng->event.button.button == SDL_BUTTON_LEFT and eng->event.button.state == SDL_PRESSED ){
+                if ((eng->event.button.x >= 250 || eng->event.button.x >= 280 ) &&
+                       (eng->event.button.y >= 200 || eng->event.button.y <= 260)){
+                    Game *gr = new Game(eng, gra);
+                    gr->initGame();
+                    gr->loopGame();
+                    delete gr;
                  }
            }
             break;
@@ -47,5 +48,6 @@ void Menu::loopMenu(){
             SDL_Quit();
             break;
         }
+      }
     }
 }

@@ -3,11 +3,10 @@
 using namespace std;
 
 
-Game::Game(int width, int height, Engine * e): eng (e){
+Game::Game(Engine * e, Graphic * gr): eng (e), grap(gr){
     localConfig = new Config ("game.cfg");
     localConfig->parse();
     eng-> setWindowTitle( localConfig->getStringValue("title_Game","BlockEraser2").c_str() );
-    grap = new Graphic(eng->screen, width, height);
     blocks = new BlocksManager(20, 20);
 }
 
@@ -62,7 +61,6 @@ void Game::actionMouse(int x,
 }
 
 void Game::loopGame(){
-    SDL_Event event;
     int quit = 0;
     while (!quit){
         if (gameTime->getTimeToEnd() == 0 && gameTime->getStatus() == false)
@@ -73,18 +71,15 @@ void Game::loopGame(){
                 gameTime->stop();
                 endScreen();
                 eng->delay(2000);
+                quit = 1;
                 break;
             }
         }
-        while (SDL_PollEvent(&event)){
-
-            switch(event.type){
+        while (SDL_PollEvent(&eng->event)){
+            switch(eng->event.type){
             case SDL_MOUSEBUTTONDOWN:
-                if (event.button.button == SDL_BUTTON_LEFT and event.button.state == SDL_PRESSED )
-                    actionMouse(event.button.x, event.button.y );
-                break;
-            case SDL_KEYDOWN:
-                quit = 1;
+                if (eng->event.button.button == SDL_BUTTON_LEFT and eng->event.button.state == SDL_PRESSED )
+                    actionMouse(eng->event.button.x, eng->event.button.y );
                 break;
             case SDL_QUIT:
                 quit =1;
