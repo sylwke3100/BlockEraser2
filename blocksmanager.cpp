@@ -15,10 +15,9 @@ void BlocksManager::initGame(){
 
 void BlocksManager::moveemptyBlocks(int x){
     std::vector <RGBColor> tmpColor;
-    for(int y = 0; y < tableBlocks.size();  y++)
+    for(unsigned y = 0; y < tableBlocks.size();  y++)
          if (isActive(tableBlocks[y][x]))
              tmpColor.push_back(tableBlocks[y][x]);
-    int o = 0;
     for(int a = 0; a < sizeY; a++){
         if (a < sizeY - (tmpColor.size()) )
             clearBlock(tableBlocks[a][x])  ;
