@@ -9,7 +9,7 @@ class Timer
     int tickTime = 0;
     bool status = 0;
 public:
-    Timer(int gameTickTime);
+    Timer();
     void start();
     void stop();
     void set(int time);

@@ -8,8 +8,7 @@
 #include <algorithm>
 #include "block.h"
 
-class BlocksManager: public Block
-{
+class BlocksManager: public Block{
     int sizeX = 0;
     int sizeY = 0;
 public:

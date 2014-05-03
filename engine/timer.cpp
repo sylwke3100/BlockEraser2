@@ -1,7 +1,6 @@
 #include "timer.h"
 
-Timer::Timer(int gameTickTime): tickTime(gameTickTime){
-
+Timer::Timer(){
 }
 
 void Timer::start(){
@@ -12,6 +11,7 @@ void Timer::start(){
 void Timer::stop(){
     status = 0;
     startTime = 0;
+    tickTime = 0;
 }
 
 void Timer::set(int time){
@@ -19,10 +19,15 @@ void Timer::set(int time){
 }
 
 int Timer::getTimeToEnd(){
-    int cTime = SDL_GetTicks();
-    tickTime -=  (  cTime - startTime );
-    startTime = cTime;
-    return tickTime;
+    if (status){
+        int cTime = SDL_GetTicks();
+        tickTime -=  (  cTime - startTime );
+        startTime = cTime;
+        return tickTime;
+    }
+    else
+        return 0;
+
 }
 
 bool Timer::getStatus(){

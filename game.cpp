@@ -12,7 +12,7 @@ Game::Game(Engine * e, Graphic * gr): eng (e), grap(gr){
 
 void Game::updateTimer(){
     grap->drawBlock(localConfig->getIntValue("time_bar_x", 0), localConfig->getIntValue("time_bar_y", 0), 10, 400, blocks->colorTable[0]);
-    grap->drawBlock(localConfig->getIntValue("time_bar_x", 0), localConfig->getIntValue("time_bar_y", 0), 10, gameTime->getTimeToEnd() / 100, blocks->colorTable[localConfig->getIntValue("time_bar_color", 4)]);
+    grap->drawBlock(localConfig->getIntValue("time_bar_x", 0), localConfig->getIntValue("time_bar_y", 0), 10, gameTime.getTimeToEnd() / 100, blocks->colorTable[localConfig->getIntValue("time_bar_color", 4)]);
     grap->render();
 }
 
@@ -39,8 +39,9 @@ void Game::endScreen(){
 
 void Game::initGame(){
     blocks->initGame();
-    gameTime = new Timer(localConfig->getIntValue("time", 40000));
     updateInterface();
+    gameTime.set(localConfig->getIntValue("time", 40000));
+
 }
 
 void Game::actionMouse(int x,
@@ -51,7 +52,7 @@ void Game::actionMouse(int x,
         if (curentX < 20 && curentY < 20){
             blocks->searchNeiberhood(x/25, y/25, score);
             if (score - lastscore > localConfig->getIntValue("add_count_combination", 6 )){
-                gameTime->set( gameTime->getTimeToEnd() + (score - lastscore)* localConfig->getIntValue("add_time_combination", 50) ) ;
+                gameTime.set( gameTime.getTimeToEnd() + (score - lastscore)* localConfig->getIntValue("add_time_combination", 50) ) ;
             }
             if (score - lastscore > 2)
                 updateInterface();
@@ -63,28 +64,33 @@ void Game::actionMouse(int x,
 void Game::loopGame(){
     int quit = 0;
     while (!quit){
-        if (gameTime->getTimeToEnd() == 0 && gameTime->getStatus() == false)
-            gameTime->start();
+        if (gameTime.getTimeToEnd() == 0 && gameTime.getStatus() == false)
+            gameTime.start();
         else {
             updateTimer();
-            if (gameTime->getTimeToEnd() <= 0 && gameTime->getStatus() == true){
-                gameTime->stop();
+            if (gameTime.getTimeToEnd() <= 0 && gameTime.getStatus() == true){
+                gameTime.stop();
                 endScreen();
                 eng->delay(2000);
                 quit = 1;
                 break;
             }
         }
-        while (SDL_PollEvent(&eng->event)){
-            switch(eng->event.type){
-            case SDL_MOUSEBUTTONDOWN:
-                if (eng->event.button.button == SDL_BUTTON_LEFT and eng->event.button.state == SDL_PRESSED )
-                    actionMouse(eng->event.button.x, eng->event.button.y );
-                break;
-            case SDL_QUIT:
-                quit =1;
-                break;
+        if (quit != 1)
+            while (SDL_PollEvent(eng->event)){
+                switch(eng->event->type){
+                case SDL_MOUSEBUTTONDOWN:
+                    if (eng->event->button.button == SDL_BUTTON_LEFT and eng->event->button.state == SDL_PRESSED )
+                        actionMouse(eng->event->button.x, eng->event->button.y );
+                    break;
+                case SDL_QUIT:
+                    quit =1;
+                    break;
+                }
             }
-        }
     }
+}
+
+Game::~Game(){
+    delete localConfig;
 }

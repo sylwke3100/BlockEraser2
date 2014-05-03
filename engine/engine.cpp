@@ -3,6 +3,7 @@
 Engine::Engine(){
     SDL_Init( SDL_INIT_EVERYTHING );
     SDL_ShowCursor(1);
+    event = new SDL_Event;
 }
 
 void Engine::delay(int mil){
@@ -16,3 +17,9 @@ void Engine::setWindowTitle(std::string title){
 int Engine::getTicks(){
     return SDL_GetTicks();
 }
+
+void Engine::clearEvents(){
+    event = NULL;
+    event = new SDL_Event;
+}
+

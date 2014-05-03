@@ -7,8 +7,7 @@
 #include "game.h"
 
 
-class Menu
-{
+class Menu{
     Engine * eng;
     Graphic * gra;
 public:

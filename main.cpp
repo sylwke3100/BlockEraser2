@@ -1,8 +1,7 @@
 #include "game.h"
 #include "menu.h"
 
-int main()
-{
+int main(){
     Menu M;
     M.loopMenu();
 }

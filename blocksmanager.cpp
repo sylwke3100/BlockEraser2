@@ -20,7 +20,6 @@ void BlocksManager::moveemptyBlocks(int x){
              tmpColor.push_back(tableBlocks[y][x]);
     int o = 0;
     for(int a = 0; a < sizeY; a++){
-        std::cout<<++o<<std::endl;
         if (a < sizeY - (tmpColor.size()) )
             clearBlock(tableBlocks[a][x])  ;
         else

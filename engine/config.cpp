@@ -1,7 +1,6 @@
 #include "config.h"
 
-Config::Config(std::string fileName)
-{
+Config::Config(std::string fileName){
     std::ifstream File(fileName);
     if (File){
         std::string tmp;

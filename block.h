@@ -4,8 +4,7 @@
 #include "header.h"
 
 
-class Block
-{
+class Block{
 
 public:
     Block();

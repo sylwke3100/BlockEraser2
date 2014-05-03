@@ -16,7 +16,7 @@ private:
     Graphic * grap;
     int score = 0, lastscore = 0;
     Config *localConfig;
-    Timer * gameTime;
+    Timer gameTime;
 public:
     Game(Engine * e, Graphic *gr);
     void initGame();
@@ -25,5 +25,6 @@ public:
     void updateInterface();
     void updateTimer();
     void endScreen();
+    ~Game();
 };
 #endif // GAME_H

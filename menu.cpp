@@ -1,7 +1,6 @@
 #include "menu.h"
 
-Menu::Menu()
-{
+Menu::Menu(){
     eng = new Engine();
     gra = new Graphic(eng->screen, 600, 600);
 }
@@ -27,19 +26,19 @@ void Menu::drawMainMenu(){
 
 void Menu::loopMenu(){
     int quit = 0;
-
     while (!quit){
         drawMainMenu();
-      while (SDL_PollEvent(&eng->event)){
-        switch(eng->event.type){
+      while (SDL_PollEvent(eng->event)){
+        switch(eng->event->type){
         case SDL_MOUSEBUTTONDOWN:
-            if (eng->event.button.button == SDL_BUTTON_LEFT and eng->event.button.state == SDL_PRESSED ){
-                if ((eng->event.button.x >= 250 || eng->event.button.x >= 280 ) &&
-                       (eng->event.button.y >= 200 || eng->event.button.y <= 260)){
+            if (eng->event->button.button == SDL_BUTTON_LEFT and eng->event->button.state == SDL_PRESSED ){
+                if ((eng->event->button.x >= 250 || eng->event->button.x >= 280 ) &&
+                       (eng->event->button.y >= 200 || eng->event->button.y <= 260)){
                     Game *gr = new Game(eng, gra);
                     gr->initGame();
                     gr->loopGame();
                     delete gr;
+                    eng->clearEvents();
                  }
            }
             break;

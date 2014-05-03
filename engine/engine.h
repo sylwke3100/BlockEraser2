@@ -6,23 +6,23 @@
 #include <string>
 #include "events.h"
 #include "boost/lexical_cast.hpp"
+#include <cstddef>
 
 using namespace std::placeholders;
-class Engine
-{
+class Engine{
     int width;
     int height;
     std::vector<std::pair<int, int> > startBlock;
     int c = 0;
 public:
-    SDL_Event event;
+    SDL_Event *event;
     SDL_Surface * screen = NULL;
     Events globalEvents;
     Engine();
     void delay(int mil);
     int getTicks();
     void setWindowTitle(std::string title);
-
+    void clearEvents();
 };
 
 #endif // ENGINE_H
