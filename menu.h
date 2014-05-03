@@ -10,11 +10,13 @@
 class Menu{
     Engine * eng;
     Graphic * gra;
+    Game * gr;
 public:
     Menu();
     void drawMainMenu();
     void drawHeader();
     void loopMenu();
+    void runGame();
 };
 
 #endif // MENU_H
