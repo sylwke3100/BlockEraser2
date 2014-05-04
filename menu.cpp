@@ -3,6 +3,7 @@
 Menu::Menu(){
     eng = new Engine();
     gra = new Graphic(eng->screen, 600, 600);
+    eng->setWindowTitle("BlockEraser 2");
 }
 
 
