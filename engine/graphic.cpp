@@ -5,13 +5,13 @@ Graphic::Graphic(SDL_Surface *screen,
                  int width,
                  int height): copyScreen(screen){
      copyScreen = SDL_SetVideoMode( width, height, 32, SDL_HWSURFACE );
+     TTF_Init();
 }
 
 void Graphic::drawText(short int x,
                        short int y,
                        std::string text,
                        int fontSize){
-    TTF_Init();
     TTF_Font* font = TTF_OpenFont("arial.ttf", fontSize);
     if(font){
         SDL_Color  background= { 0, 0, 0, 0 };
