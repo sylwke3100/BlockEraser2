@@ -39,9 +39,8 @@ void Menu::loopMenu(){
         switch(eng->event->type){
         case SDL_MOUSEBUTTONDOWN:
             if (eng->event->button.button == SDL_BUTTON_LEFT and eng->event->button.state == SDL_PRESSED ){
-                std::cout<< eng->event->button.x <<" "<<eng->event->button.y<<std::endl;
-                if ((eng->event->button.x >= 250 && eng->event->button.x <= 370 ) &&
-                       (eng->event->button.y >= 200 && eng->event->button.y <= 220)){
+                if ((eng->event->button.x >= 250 && eng->event->button.x <= 375 ) &&
+                       (eng->event->button.y >= 200 && eng->event->button.y <= 230)){
                     runGame();
                  }
            }
