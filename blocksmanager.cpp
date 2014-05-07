@@ -13,17 +13,20 @@ void BlocksManager::initGame(){
     }
 }
 
-void BlocksManager::moveemptyBlocks(int x){
-    std::vector <RGBColor> tmpColor;
-    for(unsigned y = 0; y < tableBlocks.size();  y++)
-         if (isActive(tableBlocks[y][x]))
-             tmpColor.push_back(tableBlocks[y][x]);
-    for(int a = 0; a < sizeY; a++){
-        if (a < sizeY - (tmpColor.size()) )
-            clearBlock(tableBlocks[a][x])  ;
-        else
-            tableBlocks[a][x] = tmpColor[ a - (sizeY - tmpColor.size())    ];
-    };
+void BlocksManager::moveemptyBlocks(){
+    for(int x = 0; x < sizeX; x++){
+        std::vector <RGBColor> tmpColor;
+        for(unsigned y = 0; y < tableBlocks.size();  y++)
+             if (isActive(tableBlocks[y][x]))
+                 tmpColor.push_back(tableBlocks[y][x]);
+        for(int a = 0; a < tableBlocks.size(); a++){
+            if (a < ( tableBlocks.size() - tmpColor.size() ) )
+                clearBlock(tableBlocks[a][x])  ;
+            else
+                tableBlocks[a][x] = tmpColor[ a - (tableBlocks.size()  - tmpColor.size())    ];
+        }
+        tmpColor.clear();
+    }
 }
 
 void  BlocksManager::searchNeiberhood(int x,
@@ -48,9 +51,9 @@ void BlocksManager::workinQuene(int &counterPoints){
     if (quene.size() > 2){
         for(auto&& queneElement: quene){
             clearBlock(tableBlocks[queneElement.second][queneElement.first]);
-            moveemptyBlocks(queneElement.first);
         }
         counterPoints += quene.size();
+        moveemptyBlocks();
     }
     quene.clear();
 }
