@@ -22,7 +22,6 @@ void Graphic::drawText(short int x,
         SDL_BlitSurface(textSurface, NULL, copyScreen, &textPosition);
         SDL_FreeSurface(textSurface);
         TTF_CloseFont(font);
-        SDL_Flip(textSurface);
     }
 }
 void Graphic::clearAll(){
