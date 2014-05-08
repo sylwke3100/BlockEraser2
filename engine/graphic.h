@@ -5,9 +5,9 @@
 #include <SDL_ttf.h>
 class Graphic
 {
-    SDL_Surface * copyScreen = NULL;
+    SDL_Surface * screen = NULL;
 public:
-    Graphic(SDL_Surface * screen, int width, int height);
+    Graphic(int width, int height);
     void drawText(short x, short y, std::string Text, int fontSize);
     void drawBlock(int x, int y, int height, int width, RGBColor Color);
     void clearAll();

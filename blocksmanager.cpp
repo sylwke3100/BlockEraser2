@@ -29,7 +29,7 @@ void BlocksManager::moveemptyBlocks(){
     }
 }
 
-void  BlocksManager::searchNeiberhood(int x,
+void  BlocksManager::searchNeighborhood(int x,
                                       int y,
                                       int &counterPoints){
     RGBColor currentElement = tableBlocks[y][x];
@@ -37,13 +37,13 @@ void  BlocksManager::searchNeiberhood(int x,
     for(unsigned i = 0; i< quene.size(); i++){
         int curentPosX = quene[i].first, curentPosY = quene[i].second;
         if (curentPosX+1 < sizeX )
-            checkNeiberhood(curentPosX+1, curentPosY, currentElement);
+            checkNeighborhood(curentPosX+1, curentPosY, currentElement);
         if (curentPosX-1 > -1 )
-            checkNeiberhood(curentPosX - 1, curentPosY, currentElement);
+           checkNeighborhood(curentPosX - 1, curentPosY, currentElement);
         if (curentPosY+1 < sizeY )
-            checkNeiberhood(curentPosX, curentPosY+1, currentElement);
+            checkNeighborhood(curentPosX, curentPosY+1, currentElement);
         if (curentPosY-1 > -1 )
-            checkNeiberhood(curentPosX, curentPosY-1, currentElement);
+            checkNeighborhood(curentPosX, curentPosY-1, currentElement);
     }
    workinQuene(counterPoints);
 }
@@ -58,7 +58,7 @@ void BlocksManager::workinQuene(int &counterPoints){
     quene.clear();
 }
 
-void BlocksManager::checkNeiberhood(int x,
+void BlocksManager::checkNeighborhood(int x,
                                     int y,
                                     RGBColor currentElement){
     if ( currentElement == tableBlocks[y][x] &&

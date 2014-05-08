@@ -18,8 +18,8 @@ public:
     std::vector<std::pair<int, int> > quene;
     BlocksManager(int width, int height);
     void initGame();
-    void searchNeiberhood(int x, int y, int &counterPoints);
-    void checkNeiberhood(int x, int y, RGBColor currentElement);
+    void searchNeighborhood(int x, int y, int &counterPoints);
+    void checkNeighborhood(int x, int y, RGBColor currentElement);
     void moveemptyBlocks();
     void workinQuene(int &counterPoints);
 };
