@@ -34,15 +34,16 @@ void Menu::runGame(){
 
 void Menu::loopMenu(){
     int quit = 0;
+     drawMainMenu();
     while (!quit){
-        drawMainMenu();
-      while (SDL_PollEvent(eng->event)){
+      while (SDL_WaitEvent(eng->event)){
         switch(eng->event->type){
         case SDL_MOUSEBUTTONDOWN:
             if (eng->event->button.button == SDL_BUTTON_LEFT and eng->event->button.state == SDL_PRESSED ){
                 if ((eng->event->button.x >= 250 && eng->event->button.x <= 375 ) &&
                        (eng->event->button.y >= 200 && eng->event->button.y <= 230)){
                     runGame();
+                     drawMainMenu();
                  }
            }
             break;
