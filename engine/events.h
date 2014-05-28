@@ -4,15 +4,17 @@
 #include <vector>
 #include <memory>
 
+#include "eventelement.h"
 
-class Events
-{
-    typedef std::function<void()>* funct;
-    std::vector< std::pair<std::string,  std::function<void()>> > lista;
+class Events{
+    std::vector< EventElement > eventContainer;
+    SDL_Event evnt;
 public:
     Events();
-    void addEvent(std::string Name,   std::function<void()> callback);
-    void runEvent(std::string Name);
+    void addEvent(const EventElement &ev);
+    void ignoreEvent(int eventId);
+    void activateEvent(int eventId);
+    void loopEvents();
 };
 
 #endif // EVENTS_H
