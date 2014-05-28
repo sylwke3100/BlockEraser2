@@ -1,6 +1,6 @@
 cmake_minimum_required( VERSION 2.6 )
 set ( CMAKE_BUILD_TYPE Release )
-add_definitions ( -Wall -std=c++0x )
+add_definitions ( -Wall -std=c++0x  )
 
 CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
 PROJECT(BlockEraser2)
@@ -22,6 +22,7 @@ set ( BlockEraser2_HDRS
 	menu.h
         engine/events.h
         engine/eventelement.h
+        engine/position.h
 	)
 
 set ( BlockEraser2_SRCS

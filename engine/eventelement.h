@@ -3,17 +3,9 @@
 
 #include <functional>
 #include <SDL.h>
+#include "position.h"
 
-struct Position {
-    Position(int stX, int soX, int StY, int SoY): startX(stX), stopX(soX), stopY(SoY), startY(StY){}
-    int startX;
-    int startY;
-    int stopX;
-    int stopY;
-};
-
-class EventElement
-{
+class EventElement{
 
 private:
     bool active = true;

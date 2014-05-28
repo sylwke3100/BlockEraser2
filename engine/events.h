@@ -3,8 +3,8 @@
 #include <string>
 #include <vector>
 #include <memory>
-
 #include "eventelement.h"
+#include "position.h"
 
 class Events{
     std::vector< EventElement > eventContainer;
