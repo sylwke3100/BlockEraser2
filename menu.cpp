@@ -4,6 +4,8 @@ Menu::Menu(){
     eng = new Engine();
     gra = new Graphic(600, 600);
     eng->setWindowTitle("BlockEraser 2");
+    std::function<void(SDL_Event)> newGameHandler = [this](SDL_Event e){ this->runGame(); };
+    evn.addEvent(EventElement(Position(250, 375, 200, 230), newGameHandler ));
 }
 
 
@@ -25,33 +27,16 @@ void Menu::drawMainMenu(){
 }
 
 void Menu::runGame(){
-    gr = NULL;
     gr = new Game(eng, gra);
     gr->initGame();
     gr->loopGame();
-    eng->clearEvents();
+    drawMainMenu();
 }
 
 void Menu::loopMenu(){
     int quit = 0;
      drawMainMenu();
-    while (!quit){
-      while (SDL_WaitEvent(eng->event)){
-        switch(eng->event->type){
-        case SDL_MOUSEBUTTONDOWN:
-            if (eng->event->button.button == SDL_BUTTON_LEFT and eng->event->button.state == SDL_PRESSED ){
-                if ((eng->event->button.x >= 250 && eng->event->button.x <= 375 ) &&
-                       (eng->event->button.y >= 200 && eng->event->button.y <= 230)){
-                    runGame();
-                     drawMainMenu();
-                 }
-           }
-            break;
-        case SDL_QUIT:
-            quit =1;
-            SDL_Quit();
-            break;
-        }
-      }
-    }
+     while(!quit)
+        evn.loopEvents(quit);
+
 }

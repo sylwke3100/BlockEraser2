@@ -15,9 +15,8 @@ void Events::activateEvent(int eventId){
     eventContainer[eventId].setStatus(true);
 }
 
-void Events::loopEvents(){
-    int quit = 0;
-    if (quit != 1)
+void Events::loopEvents(int &quitStatus){
+    if (quitStatus != 1)
         while (SDL_PollEvent(&evnt)){
             switch(evnt.type){
             case SDL_MOUSEBUTTONDOWN:
@@ -35,7 +34,7 @@ void Events::loopEvents(){
                     }
                 break;
             case SDL_QUIT:
-                quit =1;
+                quitStatus =1;
                 break;
             }
         }

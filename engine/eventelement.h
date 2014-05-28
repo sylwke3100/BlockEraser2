@@ -5,10 +5,11 @@
 #include <SDL.h>
 
 struct Position {
-    int startX = -1;
-    int startY = -1;
-    int stopX  = -1;
-    int stopY  = -1;
+    Position(int stX, int soX, int StY, int SoY): startX(stX), stopX(soX), stopY(SoY), startY(StY){}
+    int startX;
+    int startY;
+    int stopX;
+    int stopY;
 };
 
 class EventElement
@@ -19,7 +20,7 @@ private:
 public:
     std::function <void(SDL_Event)> callback;
     Position pos;
-    EventElement(const Position element, std::function <void(SDL_Event)>cbak);
+    EventElement(Position element, std::function <void(SDL_Event)> cbak);
     bool isActive();
     void setStatus(bool status);
 

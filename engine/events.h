@@ -14,7 +14,7 @@ public:
     void addEvent(const EventElement &ev);
     void ignoreEvent(int eventId);
     void activateEvent(int eventId);
-    void loopEvents();
+    void loopEvents(int& quitStatus);
 };
 
 #endif // EVENTS_H
