@@ -20,6 +20,8 @@ set ( BlockEraser2_HDRS
 	engine/config.h
 	engine/timer.h
 	menu.h
+        engine/events.h
+        engine/eventelement.h
 	)
 
 set ( BlockEraser2_SRCS
@@ -33,6 +35,7 @@ set ( BlockEraser2_SRCS
 	engine/config.cpp
 	engine/timer.cpp
 	menu.cpp
+        engine/eventelement.cpp
 	)
 
 add_executable ( BlockEraser2 ${BlockEraser2_SRCS} ${UIS} ${RSCS} ${TRS} ${MOCS} )
