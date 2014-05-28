@@ -1,6 +1,6 @@
 #include "eventelement.h"
 
-EventElement::EventElement(Position element, std::function <void(SDL_Event)>cbak): pos(element), callback(cbak){
+EventElement::EventElement(Position element, std::function<void(Position)> cbak): pos(element), callback(cbak){
 }
 
 bool EventElement::isActive(){

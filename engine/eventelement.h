@@ -10,9 +10,9 @@ class EventElement{
 private:
     bool active = true;
 public:
-    std::function <void(SDL_Event)> callback;
+    std::function <void(Position)> callback;
     Position pos;
-    EventElement(Position element, std::function <void(SDL_Event)> cbak);
+    EventElement(Position element, std::function <void(Position)> cbak);
     bool isActive();
     void setStatus(bool status);
 

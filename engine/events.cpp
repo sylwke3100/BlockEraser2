@@ -27,7 +27,7 @@ void Events::loopEvents(int &quitStatus){
                                evnt.button.x <=  element.pos.stopX &&
                                evnt.button.y >=  element.pos.startY &&
                                evnt.button.y <=  element.pos.stopY){
-                                element.callback(evnt);
+                                element.callback(Position(evnt.button.x, -1, evnt.button.y, -1));
                             }
 
                         }

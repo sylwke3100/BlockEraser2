@@ -5,10 +5,9 @@ Menu::Menu(){
     eng = new Engine();
     gra = new Graphic(600, 600);
     eng->setWindowTitle("BlockEraser 2");
-    std::function<void(SDL_Event)> newGameHandler = [this](SDL_Event e){ this->runGame(); };
+    std::function<void(Position)> newGameHandler = [this](Position e){ this->runGame(); };
     evn->addEvent(EventElement(Position(250, 375, 200, 230), newGameHandler ));
 }
-
 
 void Menu::drawHeader(){
     gra ->clearAll();

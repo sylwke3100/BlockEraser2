@@ -1,6 +1,5 @@
 #include "graphic.h"
 
-
 Graphic::Graphic(int width,
                  int height){
      screen = SDL_SetVideoMode( width, height, 32, SDL_HWSURFACE );
