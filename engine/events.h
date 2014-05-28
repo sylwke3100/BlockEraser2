@@ -15,6 +15,7 @@ public:
     void ignoreEvent(int eventId);
     void activateEvent(int eventId);
     void loopEvents(int& quitStatus);
+    void removeEvent(int eventId);
 };
 
 #endif // EVENTS_H

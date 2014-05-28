@@ -39,3 +39,7 @@ void Events::loopEvents(int &quitStatus){
             }
         }
 }
+
+void Events::removeEvent(int eventId){
+    eventContainer.erase(eventContainer.begin()+eventId, eventContainer.begin()+1+eventId);
+}

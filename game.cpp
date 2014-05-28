@@ -3,7 +3,10 @@
 using namespace std;
 
 
-Game::Game(Engine * e, Graphic * gr): eng (e), grap(gr){
+Game::Game(Engine *e, Graphic *gr, Events *evn): eng (e), grap(gr), ev(evn){
+    ev->ignoreEvent(0);
+    std::function<void(SDL_Event)> clickHandler = [this](SDL_Event ee){ this->actionMouse(ee.button.x, ee.button.y); };
+    ev->addEvent(EventElement(Position(0, 600,0, 600), clickHandler));
     localConfig = new Config ("game.cfg");
     localConfig->parse();
     eng-> setWindowTitle( localConfig->getStringValue("title_Game","BlockEraser2").c_str() );
@@ -77,17 +80,7 @@ void Game::loopGame(){
             }
         }
         if (quit != 1)
-            while (SDL_PollEvent(eng->event)){
-                switch(eng->event->type){
-                case SDL_MOUSEBUTTONDOWN:
-                    if (eng->event->button.button == SDL_BUTTON_LEFT and eng->event->button.state == SDL_PRESSED )
-                        actionMouse(eng->event->button.x, eng->event->button.y );
-                    break;
-                case SDL_QUIT:
-                    quit =1;
-                    break;
-                }
-            }
+            ev->loopEvents(quit);
     }
 }
 

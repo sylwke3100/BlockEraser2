@@ -1,11 +1,12 @@
 #include "menu.h"
 
 Menu::Menu(){
+    evn = new Events();
     eng = new Engine();
     gra = new Graphic(600, 600);
     eng->setWindowTitle("BlockEraser 2");
     std::function<void(SDL_Event)> newGameHandler = [this](SDL_Event e){ this->runGame(); };
-    evn.addEvent(EventElement(Position(250, 375, 200, 230), newGameHandler ));
+    evn->addEvent(EventElement(Position(250, 375, 200, 230), newGameHandler ));
 }
 
 
@@ -27,9 +28,11 @@ void Menu::drawMainMenu(){
 }
 
 void Menu::runGame(){
-    gr = new Game(eng, gra);
+    gr = new Game(eng, gra, evn);
     gr->initGame();
     gr->loopGame();
+    evn->removeEvent(1);;
+    evn->activateEvent(0);
     drawMainMenu();
 }
 
@@ -37,6 +40,6 @@ void Menu::loopMenu(){
     int quit = 0;
      drawMainMenu();
      while(!quit)
-        evn.loopEvents(quit);
+        evn->loopEvents(quit);
 
 }

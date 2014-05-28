@@ -13,7 +13,7 @@ class Menu{
     Engine * eng;
     Graphic * gra;
     Game * gr;
-    Events evn;
+    Events *evn;
 public:
     Menu();
     void drawMainMenu();
