@@ -19,7 +19,7 @@ void BlocksManager::moveemptyBlocks(){
         for(unsigned y = 0; y < tableBlocks.size();  y++)
              if (isActive(tableBlocks[y][x]))
                  tmpColor.push_back(tableBlocks[y][x]);
-        for(int a = 0; a < tableBlocks.size(); a++){
+        for(unsigned int a = 0; a < tableBlocks.size(); a++){
             if (a < ( tableBlocks.size() - tmpColor.size() ) )
                 clearBlock(tableBlocks[a][x])  ;
             else

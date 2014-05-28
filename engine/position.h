@@ -2,7 +2,7 @@
 #define POSITION_H
 
 struct Position {
-    Position(int stX, int soX, int StY, int SoY): startX(stX), stopX(soX), stopY(SoY), startY(StY){}
+    Position(int stX, int soX, int StY, int SoY): startX(stX), startY(StY), stopX(soX), stopY(SoY) {}
     int startX;
     int startY;
     int stopX;
