@@ -5,6 +5,7 @@ using namespace std;
 
 Game::Game(Engine *e, Graphic *gr, Events *evn): eng (e), grap(gr), ev(evn){
     ev->ignoreEvent(0);
+    ev->ignoreEvent(1);
     std::function<void(Position)> clickHandler = [this](Position ee){ this->actionMouse(ee.startX, ee.startY); };
     ev->addEvent(EventElement(Position(0, 600,0, 600), clickHandler));
     localConfig = new Config ("game.cfg");
