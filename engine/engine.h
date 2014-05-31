@@ -15,9 +15,9 @@ public:
     SDL_Surface * screen = NULL;
     Events globalEvents;
     Engine();
-    void delay(int mil);
-    int getTicks();
-    void setWindowTitle(std::string title);
+    static void delay(int mil);
+    static int getTicks();
+    static void setWindowTitle(std::string title);
     void clearEvents();
 };
 

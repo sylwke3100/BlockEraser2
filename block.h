@@ -3,15 +3,14 @@
 #include <random>
 #include "header.h"
 
-
 class Block{
 
 public:
     Block();
     std::random_device rd;
-    void clearBlock(RGBColor &blk);
-    bool isActive(RGBColor blk);
-    void setBlock(const RGBColor in, RGBColor& out);
+    static void clearBlock(RGBColor &blk);
+    static bool isActive(RGBColor blk);
+    static void setBlock(const RGBColor &in, RGBColor& out);
     int getRandomColorId();
 };
 

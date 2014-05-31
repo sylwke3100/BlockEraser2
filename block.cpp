@@ -14,7 +14,7 @@ bool Block::isActive(RGBColor blk){
         return true;
 }
 
-void Block::setBlock(const RGBColor in,
+void Block::setBlock(const RGBColor &in,
                      RGBColor &out){
     out = in;
 }

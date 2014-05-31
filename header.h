@@ -9,7 +9,7 @@ struct RGBColor{
     RGBColor(int one,
              int two,
              int thirth): first(one), second(two), third(thirth){}
-    bool operator == (RGBColor Color) {
+     bool operator == (const RGBColor &Color) {
         if (this->first == Color.first && this->second == Color.second && this->third == Color.third)
             return true;
         else

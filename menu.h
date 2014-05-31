@@ -18,6 +18,7 @@ public:
     Menu();
     void drawMainMenu();
     void drawHeader();
+    void drawAboutMenu();
     void loopMenu();
     void runGame();
 };

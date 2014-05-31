@@ -19,7 +19,6 @@ int Engine::getTicks(){
 }
 
 void Engine::clearEvents(){
-    event = NULL;
     event = new SDL_Event;
 }
 

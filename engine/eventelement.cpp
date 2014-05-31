@@ -3,7 +3,7 @@
 EventElement::EventElement(Position element, std::function<void(Position)> cbak): pos(element), callback(cbak){
 }
 
-bool EventElement::isActive(){
+bool &EventElement::isActive(){
     return active;
 }
 

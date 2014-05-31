@@ -13,7 +13,7 @@ public:
     Position pos;
     std::function <void(Position)> callback;
     EventElement(Position element, std::function <void(Position)> cbak);
-    bool isActive();
+    bool &isActive();
     void setStatus(bool status);
 
 };

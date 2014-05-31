@@ -7,8 +7,9 @@ Menu::Menu(){
     eng->setWindowTitle("BlockEraser 2");
     std::function<void(Position)> newGameHandler = [this](Position e){ this->runGame(); };
     evn->addEvent(EventElement(Position(250, 375, 200, 230), newGameHandler ));
+    std::function<void(Position)> aboutGameHandler = [this](Position e){ this->drawAboutMenu(); };
+    evn->addEvent(EventElement(Position(250, 475, 200, 430), aboutGameHandler ));
 }
-
 void Menu::drawHeader(){
     gra ->clearAll();
     gra->drawText(150, 90, "Block Eraser 2", 50);
@@ -18,6 +19,14 @@ void Menu::drawHeader(){
     gra->drawBlock(120,120, 15, 15, RGBColor(255, 0, 0));
 }
 
+void Menu::drawAboutMenu(){
+    drawHeader();
+    gra->drawText(100, 200, "Jest to prosta gra w które trzeba usuwać zbędne klocki", 15);
+    gra->drawText(100, 220, "tego samego koloru. Za to dostaje się odpowiednio plunkty i", 15);
+    gra->drawText(100, 240, "bonus czasowy", 15);
+
+    gra->render();
+}
 
 void Menu::drawMainMenu(){
     drawHeader();
@@ -30,8 +39,9 @@ void Menu::runGame(){
     gr = new Game(eng, gra, evn);
     gr->initGame();
     gr->loopGame();
-    evn->removeEvent(1);;
+    evn->removeEvent(2);
     evn->activateEvent(0);
+    evn->activateEvent(1);
     drawMainMenu();
 }
 
