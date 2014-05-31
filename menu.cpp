@@ -21,11 +21,14 @@ void Menu::drawHeader(){
 
 void Menu::drawAboutMenu(){
     drawHeader();
+
+    evn->activateEvent(2);
     gra->drawText(100, 200, "Jest to prosta gra w które trzeba usuwać zbędne klocki", 15);
     gra->drawText(100, 220, "tego samego koloru. Za to dostaje się odpowiednio plunkty i", 15);
     gra->drawText(100, 240, "bonus czasowy", 15);
-
     gra->render();
+    eng->delay(3000);
+    drawMainMenu();
 }
 
 void Menu::drawMainMenu(){
@@ -39,9 +42,9 @@ void Menu::runGame(){
     gr = new Game(eng, gra, evn);
     gr->initGame();
     gr->loopGame();
-    evn->removeEvent(2);
     evn->activateEvent(0);
     evn->activateEvent(1);
+    evn->removeEvent(2);
     drawMainMenu();
 }
 
