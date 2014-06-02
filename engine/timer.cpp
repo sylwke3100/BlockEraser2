@@ -1,4 +1,5 @@
 #include "timer.h"
+#include "engine.h"
 
 Timer::Timer(){
 }
@@ -20,7 +21,7 @@ void Timer::set(int time){
 
 int Timer::getTimeToEnd(){
     if (status){
-        int cTime = SDL_GetTicks();
+        int cTime = Engine::getTicks();
         tickTime -=  (  cTime - startTime );
         startTime = cTime;
         return tickTime;
