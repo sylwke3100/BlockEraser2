@@ -30,16 +30,15 @@ void Graphic::drawBlock(int x,
                         int y,
                         int height,
                         int width,
-                        RGBColor Color){
-    SDL_Rect* kwadrat = new SDL_Rect;
-    kwadrat->h = height;
-    kwadrat->w = width;
-    kwadrat->x = x;
-    kwadrat->y = y;
-    SDL_FillRect(screen, kwadrat, SDL_MapRGB(screen->format , Color.first, Color.second, Color.third));
-    delete kwadrat;
+                        RGBColor color){
+    SDL_Rect kwadrat = {(short) x  , (short)y , (unsigned short) width, (unsigned short) height};
+    blockList.push_back( graphicBlock(color ,kwadrat) );
 }
 
 void Graphic::render(){
+    for(auto element:blockList){
+        SDL_FillRect(screen, &element.square, SDL_MapRGB(screen->format , element.color.first, element.color.second, element.color.third));
+    }
+    blockList.clear();
     SDL_Flip( screen );
 }
