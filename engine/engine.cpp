@@ -11,7 +11,7 @@ void Engine::delay(int mil){
 }
 
 void Engine::setWindowTitle(std::string title){
-    SDL_WM_SetCaption(title.c_str(), "");
+    SDL_SetWindowTitle(window, title.c_str());
 }
 
 int Engine::getTicks(){

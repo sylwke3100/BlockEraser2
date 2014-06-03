@@ -4,6 +4,7 @@
 #include "../header.h"
 #include <SDL_ttf.h>
 #include <vector>
+#include <stdexcept>
 
 struct graphicBlock{
     RGBColor color;
@@ -15,10 +16,12 @@ struct graphicBlock{
 
 class Graphic
 {
-    SDL_Surface * screen = NULL;
+    SDL_Renderer* renderer;
+    SDL_Surface* screen;
     std::vector<graphicBlock> blockList;
 public:
-    Graphic(int width, int height);
+    Graphic(int width, int height, SDL_Window *window);
+    ~Graphic();
     void drawText(short x, short y, std::string Text, int fontSize);
     void drawBlock(int x, int y, int height, int width, RGBColor color);
     void clearAll();
