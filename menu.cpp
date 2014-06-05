@@ -3,7 +3,7 @@
 Menu::Menu(){
     evn = new Events();
     eng = new Engine();
-    gra = new Graphic(600, 600, eng->window);
+    gra = new Graphic(600, 600);
     eng->setWindowTitle("BlockEraser 2");
     std::function<void(Position)> newGameHandler = [this](Position e){ this->runGame(); };
     evn->addEvent(EventElement(Position(250, 375, 200, 230), newGameHandler ));

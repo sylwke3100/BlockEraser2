@@ -29,20 +29,16 @@ void Events::loopEvents(int &quitStatus){
                                evnt.button.y <=  element.pos.stopY){
                                 element.callback(Position(evnt.button.x, -1, evnt.button.y, -1));
                             }
+
                         }
                     }
                 break;
             case SDL_QUIT:
-                quitStatus--;
+                quitStatus =1;
                 break;
-            case SDL_KEYDOWN:
-                switch(evnt.key.keysym.sym) {
-                case SDLK_ESCAPE:
-                    quitStatus--;
-                    break;
-                }
-                break;
-} }}
+            }
+        }
+}
 
 void Events::removeEvent(int eventId){
     eventContainer.erase(eventContainer.begin()+eventId, eventContainer.begin()+1+eventId);
