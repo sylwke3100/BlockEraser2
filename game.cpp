@@ -31,13 +31,13 @@ void Game::updateInterface(){
         startPosY = startPosY + 25;
         startPosX = 0;
     }
-    grap->drawText(10, 15, localConfig->getStringValue("score_bar_label", "Score: ") + boost::lexical_cast<std::string>(score* localConfig->getIntValue("p_score", 10)), 17);
+    grap->drawText(10, 15, localConfig->getStringValue("score_bar_label", "Score: ") + std::to_string(score* localConfig->getIntValue("p_score", 10)), 17);
     grap->render();
 }
 void Game::endScreen(){
     grap->clearAll();
     grap->drawText(250, 200, "Koniec Gry", 22);
-    grap->drawText(280, 250, "Wynik: "+ boost::lexical_cast<std::string>(score*10), 16);
+    grap->drawText(280, 250, "Wynik: "+ std::to_string(score*10), 16);
     grap->render();
 }
 

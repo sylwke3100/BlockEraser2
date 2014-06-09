@@ -4,7 +4,6 @@
 #include <iostream>
 #include <fstream>
 #include <map>
-#include "boost/lexical_cast.hpp"
 
 class Config
 {

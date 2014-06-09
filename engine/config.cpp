@@ -43,7 +43,7 @@ void Config::parse(){
 int Config::getIntValue(std::string key,
                         int defaultValue){
     if (values.find(key) != values.end())
-        return boost::lexical_cast<int>(values[key]);
+        return std::stoi(values[key]);
     else
         return defaultValue;
 

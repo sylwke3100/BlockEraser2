@@ -5,7 +5,6 @@
 #include <vector>
 #include <string>
 #include "events.h"
-#include "boost/lexical_cast.hpp"
 #include <cstddef>
 
 class Engine{
