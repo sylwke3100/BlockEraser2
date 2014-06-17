@@ -14,7 +14,7 @@ void Graphic::drawText(short int x,
     if(font){
         SDL_Color  background= { 0, 0, 0, 0 };
         SDL_Color  foreground= { 255, 255, 255, 0 };
-        SDL_Surface* textSurface = TTF_RenderText_Shaded(font, text.c_str(),
+        SDL_Surface* textSurface = TTF_RenderUTF8_Shaded(font, text.c_str(),
                                                         foreground, background);
         SDL_Rect textPosition = { x, y, 0, 0 };
         SDL_BlitSurface(textSurface, NULL, screen, &textPosition);
