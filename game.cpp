@@ -26,9 +26,9 @@ void Game::updateInterface(){
     for(auto&& y :blocks->tableBlocks){
         for(auto&& x:y){
             grap->drawBlock(startPosX, startPosY, 20, 20, x);
-            startPosX = startPosX + 25;
+            startPosX += 25;
         }
-        startPosY = startPosY + 25;
+        startPosY += 25;
         startPosX = 0;
     }
     grap->drawText(10, 15, localConfig->getStringValue("score_bar_label", "Score: ") + std::to_string(score* localConfig->getIntValue("p_score", 10)), 17);
