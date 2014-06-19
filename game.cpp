@@ -10,7 +10,7 @@ Game::Game(Engine *e, Graphic *gr, Events *evn): eng (e), grap(gr), ev(evn){
     ev->addEvent(EventElement(Position(0, 600,0, 600), clickHandler));
     localConfig = new Config ("game.cfg");
     localConfig->parse();
-    eng-> setWindowTitle( localConfig->getStringValue("title_Game","BlockEraser2").c_str() );
+    eng-> setWindowTitle( localConfig->getStringValue("title_Game","BlockEraser2") );
     blocks = new BlocksManager(20, 20);
 }
 

@@ -30,8 +30,8 @@ void BlocksManager::moveemptyBlocks(){
 }
 
 void  BlocksManager::searchNeighborhood(int x,
-                                      int y,
-                                      int &counterPoints){
+                                       int y,
+                                       int &counterPoints){
     RGBColor currentElement = tableBlocks[y][x];
     quene.emplace_back(x, y);
     for(unsigned i = 0; i< quene.size(); i++){
@@ -59,8 +59,8 @@ void BlocksManager::workinQuene(int &counterPoints){
 }
 
 void BlocksManager::checkNeighborhood(int x,
-                                    int y,
-                                    RGBColor currentElement){
+                                      int y,
+                                      RGBColor currentElement){
     if ( currentElement == tableBlocks[y][x] &&
          std::find(quene.begin(), quene.end(), std::make_pair(x, y) ) == quene.end() &&
          isActive(currentElement)){
