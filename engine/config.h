@@ -9,6 +9,7 @@ class Config
 {
     std::string Buffer;
     std::map <std::string, std::string> values;
+    void readBufffer(std::string& bufferkey, unsigned int &charIndex, int& status);
 public:
     Config(std::string fileName);
     void parse();

@@ -12,8 +12,25 @@ Config::Config(std::string fileName){
     }
 }
 
+void Config::readBufffer(std::string& bufferkey, unsigned int& charIndex, int& status){
+    if (status == 1 && (isalnum(Buffer[charIndex]) || Buffer.substr(charIndex ,1) == "_") )
+        bufferkey += Buffer[charIndex];
+    else
+        if (status == 1 && (!isalnum(Buffer[charIndex]) || !(Buffer.substr(charIndex ,1) == "_")) ){
+            status = 0;
+            int pos = (int) Buffer.find("'", charIndex);
+            if (pos > -1){
+                int pos2 = (int) Buffer.find("'", pos+1);
+                if (pos2>-1)
+                    values[bufferkey] = Buffer.substr(pos+1, (pos2 - pos)-1   );
+                charIndex = pos2;
+            }
+            bufferkey.clear();
+        }
+}
+
 void Config::parse(){
-    int start = 0;
+    int start = 1;
     if (!Buffer.empty()){
         std::string bufferkey;
         for (unsigned i=0; i<Buffer.length(); i++) {
@@ -22,20 +39,7 @@ void Config::parse(){
                 start = 1;
             }
             else
-                if (start == 1 && (isalnum(Buffer[i]) or Buffer.substr(i,1) == "_") )
-                    bufferkey += Buffer[i];
-                else
-                    if (start == 1 && (!isalnum(Buffer[i]) or !(Buffer.substr(i,1) == "_")) ){
-                        start = 0;
-                        int pos = (int) Buffer.find("'", i);
-                        if (pos > -1){
-                            int pos2 = (int) Buffer.find("'", pos+1);
-                            if (pos2>-1)
-                                values[bufferkey] = Buffer.substr(pos+1, (pos2 - pos)-1   );
-                            i = pos2;
-                        }
-                        bufferkey.clear();
-                    }
+                readBufffer(bufferkey, i, start);
          }
     }
 }

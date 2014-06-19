@@ -55,9 +55,8 @@ void Game::actionMouse(int x,
         int curentX = x % 25, curentY = y % 25;
         if (curentX < 20 && curentY < 20){
             blocks->searchNeighborhood(x/25, y/25, score);
-            if (score - lastscore > localConfig->getIntValue("add_count_combination", 6 )){
+            if (score - lastscore > localConfig->getIntValue("add_count_combination", 6 ))
                 gameTime.set( gameTime.getTimeToEnd() + (score - lastscore)* localConfig->getIntValue("add_time_combination", 50) ) ;
-            }
             if (score - lastscore > 2)
                 updateInterface();
             lastscore = score;

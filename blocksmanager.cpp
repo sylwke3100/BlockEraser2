@@ -30,8 +30,8 @@ void BlocksManager::moveemptyBlocks(){
 }
 
 void  BlocksManager::searchNeighborhood(int x,
-                                       int y,
-                                       int &counterPoints){
+                                        int y,
+                                        int &counterPoints){
     RGBColor currentElement = tableBlocks[y][x];
     quene.emplace_back(x, y);
     for(unsigned i = 0; i< quene.size(); i++){

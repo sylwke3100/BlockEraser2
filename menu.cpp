@@ -21,7 +21,6 @@ void Menu::drawHeader(){
 
 void Menu::drawAboutMenu(){
     drawHeader();
-
     evn->activateEvent(2);
     gra->drawText(100, 200, "Jest to prosta gra w które trzeba usuwać zbędne klocki", 15);
     gra->drawText(100, 220, "tego samego koloru. Za to dostaje się odpowiednio punkty i", 15);
