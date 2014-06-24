@@ -10,6 +10,7 @@
 #include "engine/events.h"
 #include <string>
 
+using namespace BlockEngine;
 class Game{
 private:
     BlocksManager * blocks;

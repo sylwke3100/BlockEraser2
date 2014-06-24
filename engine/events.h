@@ -6,16 +6,18 @@
 #include "eventelement.h"
 #include "position.h"
 
-class Events{
-    std::vector< EventElement > eventContainer;
-    SDL_Event evnt;
-public:
-    Events();
-    void addEvent(const EventElement &ev);
-    void ignoreEvent(int eventId);
-    void activateEvent(int eventId);
-    void loopEvents(int& quitStatus);
-    void removeEvent(int eventId);
-};
+namespace BlockEngine {
+    class Events{
+        std::vector< EventElement > eventContainer;
+        SDL_Event evnt;
+    public:
+        Events();
+        void addEvent(const EventElement &ev);
+        void ignoreEvent(int eventId);
+        void activateEvent(int eventId);
+        void loopEvents(int& quitStatus);
+        void removeEvent(int eventId);
+    };
+}
 
 #endif // EVENTS_H
